@@ -8,10 +8,10 @@
 <body>
     <h1>In this project I learned how to display images in different projections</h1>
     
-    <p>First, I uploaded the base layer map into QGIS.  To change the projections, I clicked on the projection number in the bottom right corner and clicked the one I wanted.  To add the Tissot Circles, I used the indicatrix plugin and ran it on my map.</p>
+    <p>First, I uploaded the base layer map into QGIS from the data set.  To change the projections, I clicked on the projection number in the bottom right corner and chose the one I wanted.  To add the Tissot Circles, I used the indicatrix plugin and ran it on my map.  After getting the projection I wanted, I exported it as a png file and uploaded it to my GitHub page.</p>
     
     <h2>WGS84 Projection</h2>
-    <h3>This projection looks at the Earth centered at the equator and the Prime Meridian.  The coutries at the higher latitudes are larger and stretched horizontally compared to the countries at the Equator.</h3>
+    <h3>This projection looks at the Earth centered at the equator and the Prime Meridian.  The coutries at the higher latitudes are larger and stretched horizontally compared to the countries at the Equator, but overall the distortion is not too extreme.</h3>
     <a href=".//maps/4326.png">
     <img src=".//maps/4326.png" alt="WGS84" width='500px'>
     </a>
@@ -21,17 +21,17 @@
     <img src=".//maps/54043.png" alt="Aitoff" width='500px'>
     </a>
     <h2>Pseudo Mercator</h2>
-    <h3>This is projection EPSG: 3857.  Tissot circles are the same shape so the shape of the countries hasn't been altered, but the circles at the upper and lower latitudes are much larger, indicating that the countries in those areas have increased in size on the map.</h3>
+    <h3>This is projection EPSG: 3857.  The Tissot circles are the same shape across the map, so the shape of the countries hasn't been altered, but the circles at the upper and lower latitudes are much larger, indicating that the countries in those areas have increased in size on the map.</h3>
     <a href="./maps/Projection 3857.png">
     <img src="./maps/Projection 3857.png" alt="3857" width='500px'>
     </a>
     <h2>North Pole Azimuthal Equidistant</h2>
-    <h3>This map appears to start at the North Pole and expand south around the pole.  The circles towards the South Pole are much longer and shorter, stretching the countries sideways.</h3>
+    <h3>This is projection EPSG: 102016.  This map appears to start at the North Pole and expand south around the pole in a circular fashion.  The circles towards the South Pole are much longer and shorter, stretching the countries sideways.</h3>
     <a href="./maps/Projection 102016.png">
     <img src="./maps/Projection 102016.png" alt="102016" width='500px'>
     </a>
     <h2>Sphere Winkle</h2>
-    <h3>This is projection EPSG: 53018.  The map is rounder instead of having the countries be dislayed perfectly vertical.  The circles at the higher latitudes are closer in size to the equatorial ones, so we can see that the size of each country hasn't been altered extremely, but the shape of the circles at the poles is more oblong, so we know that the countries are distorted in shape.</h3>
+    <h3>This is projection EPSG: 53018.  The map is rounded, instead of having the countries be dislayed perfectly vertical.  The circles at the higher latitudes are close in size to the equatorial ones, so we can see that the size of each country hasn't been altered extremely, but the shape of the circles at the poles is more oblong, so we know that the countries are distorted in shape.</h3>
     <a href="./maps/Projection 53018.png">
     <img src="./maps/Projection 53018.png" alt="53018" width='500px'>
     </a>
