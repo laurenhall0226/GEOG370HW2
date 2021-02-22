@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Map</title>
+    <title>Lauren Hall Leaflet Map</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -26,32 +26,58 @@
     <script>
         var map = L.map('mapid').setView([35.91, -79.05], 17);
         L.tileLayer('https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', {}).addTo(map)
-        L.marker([35.9086, -79.0492]).addTo(map)
-            .bindPopup("Bell Tower")
-           // .openPopup();
-        L.marker([35.9070, -79.0479]).addTo(map)
-            .bindPopup("Kenan Stadium")
-           // .openPopup();
-         L.marker([35.911048, -79.048055]).addTo(map)
-            .bindPopup("Davis Library")
-           // .openPopup();
-        
-        // L.geoJSON(uncwell).addTo(map)
+       
 
-        var uncIcon = L.icon({ // notice the L.icon which is a Leaflet object with properties
-        iconUrl: 'https://faopharmacy.unc.edu/files/2018/04/Old-Well-Icon-Example.png',
-        // this points to a jpg image obtained from the internet
-        iconSize: [50,50], // size of the icon
-        popupAnchor: [0,0] // where the icon is located relative to the lat lon of the point.
+       // L.geoJSON(library).addTo(map)
+
+        var DavisIcon = L.icon({
+            iconUrl: 'https://static.thenounproject.com/png/33874-200.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
         });
 
-        var customPopup = "UNC Well<br/><img src='https://global.unc.edu/files/2020/02/spring_4_09__12_054-768x511.jpg'width='100px'/>";
+        var DavisPopup = "Davis Library<br/><img src='https://library.unc.edu/wp-content/uploads/2019/08/davis.jpg'width='100px'/>";
 
-       // L.geoJSON(uncwell, { // a
-       // pointToLayer: function (feature, latlng) { // b
-       // return L.marker(latlng, {icon: uncIcon});}}) // c
-       // .bindPopup(customPopup) // d
-       // .addTo(map); //
+       
+       // L.geoJSON(stadium).addTo(map)
+
+        var KenanIcon = L.icon({
+            iconUrl: 'https://static.thenounproject.com/png/607048-200.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+
+        var KenanPopup = "Kenan Stadium<br/><img src='https://goheels.com/images/2019/11/25/Kenan_Stadium_Aerial_2_16x9.jpg'width='100px'/>";
+        
+
+       // L.geoJSON(tower).addTo(map)
+
+        var TowerIcon = L.icon({
+            iconUrl: 'https://static.thenounproject.com/png/128742-200.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+
+        var TowerPopup = "Bell Tower<br/><img src='https://www.unc.edu/wp-content/uploads/2020/08/belltower2020-1200x675.jpg'width='100px'/>";
+
+
+       L.geoJSON(library, { // a
+       pointToLayer: function (feature, latlng) { // b
+       return L.marker(latlng, {icon: DavisIcon});}}) // c
+       .bindPopup(DavisPopup) // d
+       .addTo(map); //
+
+       L.geoJSON(stadium, { // a
+       pointToLayer: function (feature, latlng) { // b
+       return L.marker(latlng, {icon: KenanIcon});}}) // c
+       .bindPopup(KenanPopup) // d
+       .addTo(map); //
+
+       L.geoJSON(tower, { // a
+       pointToLayer: function (feature, latlng) { // b
+       return L.marker(latlng, {icon: TowerIcon});}}) // c
+       .bindPopup(TowerPopup) // d
+       .addTo(map); //
 
     </script>
 
