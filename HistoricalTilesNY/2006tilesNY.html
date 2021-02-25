@@ -64,7 +64,16 @@
         "Long Island 1969": historical
       }
 
-      L.control.layers(daTiles).addTo(map)
+      var daVectors = {
+        "Massapequa High School": daSchoolMarker,
+        "John J. Burns Park": daParkMarker,
+        "Sunrise Mall":daMallMarker
+      }
+
+      L.control.layers(daTiles, daVectors).addTo(map)
+
+     
+
 
         // L.geoJSON(school).addTo(map)
 
