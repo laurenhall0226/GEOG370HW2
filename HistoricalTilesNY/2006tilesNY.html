@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaflet Preview</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+
+  <script src = "./massapequa.geojson"></script>
+
+
+  <style type="text/css">
+    body {
+       margin: 0;
+       padding: 0;
+    }
+    html, body, #map{
+       width: 100%;
+       height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+
+    
+      var map = L.map('map').setView([40.66771824384078, -73.44594597697711], 14.0);
+
+
+
+      var daSchoolMarker = L.marker([40.665313, -73.447427]).addTo(map);
+
+      var daParkMarker = L.marker([40.68318, -73.43419]).addTo(map);
+
+      var daMallMarker = L.marker([40.66802, -73.45289]).addTo(map);
+
+      var reference = L.tileLayer('./2006tilesNY/{z}/{x}/{y}.png', {
+        minZoom: 12,
+        maxZoom: 16,
+        tms: false,
+        attribution: 'USGS'
+      }).addTo(map);
+
+      
+      var historical = L.tileLayer('./tiles4.2_ex/{z}/{x}/{y}.png', {
+        minZoom: 12,
+        maxZoom: 16,
+        tms: false,
+        attribution: 'USGS'
+      }).addTo(map);
+
+           
+      var daTiles = {
+        "Long Island 2006": reference,
+        "Long Island 1969": historical
+      }
+
+      L.control.layers(daTiles).addTo(map)
+
+        // L.geoJSON(school).addTo(map)
+
+        var SchoolIcon = L.icon({
+            iconUrl: 'https://static.thenounproject.com/png/1853606-200.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+
+        var SchoolPopup = "Massapequa Park was renovated and moved more towards the main road <br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/MassapequaHighSchool.JPG/1200px-MassapequaHighSchool.JPG'width='100px'/>";
+
+       
+       // L.geoJSON(park).addTo(map)
+
+        var ParkIcon = L.icon({
+            iconUrl: 'https://i.pinimg.com/originals/20/54/42/205442f452d956de1fae3d8fb7c90d10.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+
+        var ParkPopup = "John J. Burns Park <br/><img src='https://longislandreport.org/wp-content/uploads/2011/04/215-Burns-Football-resized1.jpg'width='100px'/>";
+        
+
+       // L.geoJSON(mall).addTo(map)
+
+        var MallIcon = L.icon({
+            iconUrl: 'https://cdn.iconscout.com/icon/premium/png-512-thumb/commercial-shopping-mall-1760138-1496805.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+
+        var MallPopup = "Sunrise Mall <br/><img src='https://www.longislandpress.com/wp-content/uploads/2021/01/Sunrise2.jpg'width='100px'/>";
+
+
+       L.geoJSON(school, { // a
+       pointToLayer: function (feature, latlng) { // b
+       return L.marker(latlng, {icon: SchoolIcon});}}) // c
+       .bindPopup(SchoolPopup) // d
+       .addTo(map); //
+
+       L.geoJSON(park, { // a
+       pointToLayer: function (feature, latlng) { // b
+       return L.marker(latlng, {icon: ParkIcon});}}) // c
+       .bindPopup(ParkPopup) // d
+       .addTo(map); //
+
+       L.geoJSON(mall, { // a
+       pointToLayer: function (feature, latlng) { // b
+       return L.marker(latlng, {icon: MallIcon});}}) // c
+       .bindPopup(MallPopup) // d
+       .addTo(map); //
+
+  </script>
+</body>
+</html>
