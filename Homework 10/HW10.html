@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 10</title>
+</head>
+<body>
+<h1>Homework 10: Capital Cities Most At Risk Of A Nuclear Meltdown Accident</h1>
+<h2>Lauren Hall</h2>
+<h3>For this homework, I wanted to take a look at which capital cities in the continental US are most at risk of a nuclear power plant meltdown (Alaska and Hawaii both have no nuclear plants).  The general assumption is that anyone within 50 miles of a nuclear plant is at risk during a meltdown.  I used a radius of 25 miles for each capital city to see where people need to be aware. </h3>
+<!-- Your map goes here -->
+
+<a href="Which Capital Cities Are Safest From A Nuclear Meltdown.png">
+    <img src="Which Capital Cities Are Safest From A Nuclear Meltdown.png" alt="your map" width='1000px'>
+    </a>
+
+<h3>First I aded a 50 miles buffer to each of the nuclear power plants.  I also added a 25 mile buffer to each capital city, since this is the radius I consider part of a city and its outskirts.  I added an intersection layer showing the overalap between the two, and then I removed the buffer around the nuclear plants because it made the map look too busy. </h3>
+
+<!-- Link to your shapefile in Github and you CSV -->
+<h2>Data used for this project</h2>
+    <a href="Power_Plants.shp"> Power Plants SHP dataset </a>
+    <p></p>
+    <a href="https://hifld-geoplatform.opendata.arcgis.com/datasets/ee0263bd105d41599be22d46107341c3_0?geometry=124.299%2C-16.847%2C-150.271%2C72.114&orderBy=TYPE&orderByAsc=false&page=449&selectedAttribute=NAICS_DESC"> Link to SHP data source</a>
+  
+</body>
+</html>
